@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+}
+
+
+.app {
+    background-color: #05002B;
+    width: 105%;
+}
+
+.background {
+    background-color: #05002B;
+}
+
+.title {
+    color: white;
+    margin-left: 10px;
+    text-align: center;
+    
+    
+}
+
+.total {
+    flex-direction: row;
+    display: inline;
+    
+}
+
+.banner_course {
+    padding: 145px;
+}
+
+.course_title {
+    margin: 300px 36.5px 0 0px;
+  }
+
+.details {
+    margin: 0 0 0 3px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: bold;
+    letter-spacing: normal;
+    text-align: left;
+    color: #bebebe;
+  }
+
+.resume {
+    width: 550px;
+    margin: 50px 150px 150px 150px;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+  
+.Box1 {
+    width: 90px;
+    height: 35px;
+    margin: -100px 100px 10px 150px;
+    padding: 2px 14px 3px 10.5px;
+    border-radius: 5px;
+    background: linear-gradient(#0076cc,#0e37cc);
+  }
+
+  .Box1:hover {
+    transform: scale(1.09);
+    background-color: #0076cc;
+  }
+
+.play {
+    margin: -33px 0 0px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #fff;
+  }
+
+.icon {
+    width: 27px;
+    height: 33px;
+    margin: 0 0px 0 0;
+  }
+
+.Box2 {
+    width: 90px;
+    height: 35px;
+    margin: -50px 100px 10px 280px;
+    padding: 2px 14px 3px 10.5px;
+    border-radius: 5px;
+    background: linear-gradient(#ffffff, #DCE5EE);
+  }
+
+.Box2:hover {
+    transform: scale(1.09);
+    background-color: #e8e8e8;
+  }
+
+
+.like {
+    margin: -34px 0 1.5px 45px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #adadad;
+  }
+
+.heart {
+    width: 35px;
+    height: 35px;
+    margin: 0 2.5px 0 0;
+    object-fit: contain;
+  }
+
+.episodes {
+    margin: 90px 100px 7.5px 150px;
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+
+.episodes_section {
+    margin-left: 130px;
+    margin-top: 20px;
+}
+
+.E1 {
+    width:500px;
+    margin-top: 5px;
+    margin-left: 130px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+
+.E2 {
+    width:500px;
+    margin-top: -25px;
+    margin-left: 590px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+
+.E3 {
+    width:500px;
+    margin-top: -25px;
+    margin-left: 1060px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+
+.E4 {
+    width:500px;
+    margin-top: -25px;
+    margin-left: 1570px;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
+  }
+
+.coming-soon{
+    color: #fff;
+    text-align: center;
+}
+
+.gif{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.penguin{
+    height: 400px;
+}
