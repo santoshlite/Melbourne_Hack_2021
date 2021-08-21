@@ -1,0 +1,15 @@
+.video {
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+
+.videos {
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+    justify-content: center;
+}
