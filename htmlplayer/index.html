@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>HTML Video Player</title>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" width: 480px;>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+    <!-- CSS -->
+    <style>
+      .ui-widget-header {
+          background: #7279d6;
+          color: black;
+          border: black
+      }
+
+      .ui-state-default {
+          background-color: #d8d8d8;
+          color: black
+      }
+
+      .ui-dialog.ui-widget-content {
+          background-color: #d8d8d8;
+          color: black
+      }
+
+
+      ui-button {
+          background: #2d73db;
+          border: 1px solid #2a6dd1;
+          color: #d8d8d8;
+          font-weight: bold;
+          width: 480px;
+      }
+  #commentStyle {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: center;
+    width: 888px;    
+    background-color: #d8d8d8;
+        }    
+  </style>
+
+<script type="text/javascript">
+  $(function () {
+      $("#toggle").click(function () {
+          ($("#dialog-5").dialog("isOpen") == false) ? $(
+              "#dialog-5").dialog("open") : $("#dialog-5").dialog("close");
+      });
+      $("#dialog-5").dialog({ autoOpen: false, width: 820 });
+  });
+
+  $(function () {
+      $("#toggleCancel").click(function () {
+          $("#dialog-5").dialog("close");
+      });
+  });
+
+  //current time and duration
+
+
+      class Clip {
+        constructor(author, desc, currentTime, videoUrl) {
+          this.author = author
+          this.desc = desc
+          this.timestamp = currentTime
+          this.videoUrl = videoUrl
+        }
+      }
+
+      let clipList = []
+
+      function generateTable() {
+        let table = document.createElement("table")
+        let thead = document.createElement("thead")
+        let tbody = document.createElement("tbody")
+
+        table.appendChild(thead)
+        table.appendChild(tbody)
+
+        document.getElementById("clipListings").appendChild(table)
+
+        // Creating and adding data to first row of the table
+        let row_1 = document.createElement("tr")
+
+        thead.appendChild(row_1)
+
+        for (let c of clipList) {
+          // Creating and adding data to second row of the table
+          let row = document.createElement("tr")
+          let row_data_1 = document.createElement("td")
+          row_data_1.innerHTML = c.timestamp
+          let row_data_2 = document.createElement("td")
+          row_data_2.innerHTML = c.desc
+          let row_data_3 = document.createElement("td")
+          row_data_3.innerHTML = c.author
+
+          row.appendChild(row_data_1)
+          row.appendChild(row_data_2)
+          row.appendChild(row_data_3)
+          tbody.appendChild(row)
+        }
+        table.style.backgroundColor = "#d8d8d8";
+        table.style.borderCollapse = "collapse";
+        table.style.border = "1px solid black";
+        table.style.padding = "15px";
+        table.style.width = "888px";
+        table.style.textAlign = "left";
+        
+      }
+
+  function getVideoName(s){
+    const re= /.*src="(.*)" .*/
+    let found = s.match(re)
+    return found[1]
+  }
+  $(document).ready(function () {
+      window.clipTime = 0;
+      // Get value on button click and show alert
+      $("#toggleUpload").click(function () {
+
+          var author = $("#author").val();
+          var desc = $("#desc").val();
+
+          if (author.trim() == "" || desc.trim() == "") {
+              alert("Please Fix Empty Fields");
+              return false;
+
+          } else {
+              if (document.getElementById("anon-Bool-v").checked) {
+                  author = "Anonymous";
+              }
+              clipList =[];
+              videoUrl = getVideoName(document.getElementById("myVideo").innerHTML)
+              console.log(videoUrl);
+              c = new Clip(author, desc, window.clipTime, videoUrl);
+              clipList.push(c);
+              generateTable();
+              console.log(clipList);
+              document.querySelector('#author').value = '';
+              $("#desc").val("")
+              $("#dialog-5").dialog("close");
+          }
+      });
+  });
+
+  $(function () {
+      $("#fullscreen").click(function () {
+          console.log("Hello World");
+      });
+  });
+
+</script>
+
+  </head>
+  <body>
+    <div>
+    <div class="video-player">
+      <video id="myVideo" width="720" height="500" class = "video">
+        <source src="Emu.mp4" type="video/mp4">
+        
+        Your browser does not support HTML5 video.
+      </video>
+      
+      
+      <!-- Old video player code <video 
+      id="myVideo"
+      src="J.mp4"
+      //poster="YOUR-POSTER.png"
+      class="video"
+    ></video> -->
+    
+      <div class="player-controls">
+        <div class="video-progress">
+          <div class="video-progress-filled"></div>
+        </div>
+
+        <button class="play-button" title="Play">►</button>
+
+        <button id="toggle" class="clip-button" title="Clip">CLIP</button>
+
+        <button id="fullscreen" class="fullscreen-button" title="fullscreen">&nbsp;&nbsp;&nbsp;</button>
+        <div class="time">
+          <span class="current">0:00</span> / <span class="duration">0:00</span>
+        </div>
+
+        
+
+        <input
+          type="range"
+          class="volume"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+        />
+
+      </div>
+    </div>
+
+    <div id="clipListings">
+      <table id="commentStyle">
+        <tr>
+          <th style="text-align:left;">Timestamp</th>
+          <th style="text-align:left;">Description</th> 
+          <th style="text-align:left;">Author</th>
+        </tr>
+      </table>
+    </div>
+
+      <div id="dialog-5" title=CLIPPED!>
+
+        <form>
+            <fieldset>
+                <div class="flex-container column">
+                    <label for="clipper">CLIPPER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="text" name="author" id="author" value="" class="text ui-widget-content ui-corner-all"
+                        size=50> <br />
+
+                    <label for="description">DESCRIPTION</label>
+                    <textarea type="text" name="desc" id="desc" value="" class="text ui-widget-content ui-corner-all"
+                        row="5" cols="49"></textarea>
+
+
+                    <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+            </fieldset>
+        </form>
+
+        <div>
+            <button id="toggleCancel">CANCEL</button>
+            <button id="toggleUpload">POST</button>
+
+            <label for="insurance-v">Post Anonymously: </label>
+            <input type="checkbox" name="anonBool" id="anon-Bool-v">
+        </div>
+    </div>
+
+
+    </div>
+    <script src="video.js">
+      
+    </script>
+  </body>
+</html>
