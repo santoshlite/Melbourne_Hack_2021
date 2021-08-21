@@ -21,17 +21,12 @@ function App() {
       <Nav />
       <Switch>
       
-      <Route path="/oversimplified">
 
-        <div className="background">
-        <div className="videos">       
-          <React.Fragment>
-            <Player {...playerProps} />
-          </React.Fragment>
-        </div>
-        </div> 
-      
-      </Route>
+      <Route path="/oversimplified" component={()=>{
+
+        window.location.href = "http://127.0.0.1:5501/code/index.html";
+        return null;
+      }}/>
 
       <Route path="/statistics">
         <div className="background">
