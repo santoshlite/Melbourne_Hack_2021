@@ -24,7 +24,7 @@ function App() {
 
       <Route path="/oversimplified" component={()=>{
 
-        window.location.href = "http://127.0.0.1:5501/code/index.html";
+        window.location.href = "http://localhost:3000/p/";
         return null;
       }}/>
 
